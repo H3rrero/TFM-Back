@@ -24,7 +24,7 @@ let corsOptions = {
 let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
   , new user(1, "user1",'user1', 'Pedro', 'Picapiedra')];
 let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
-let phases = [new phase(0, "Start prototype",'2019', '0', '1','2019','0','25','0.75')
+let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0','25','0.75')
             ,new phase(1, "Develop",'2019', '0', '26','2019','1','24','0.40')
             ,new phase(2, "Prototype done",'2019', '1', '25','2019','3','25','0.12') 
           ,new phase(3, "Test prototype",'2019', '3', '27','2019','4','15','0.15')

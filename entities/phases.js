@@ -8,7 +8,7 @@ module.exports =
             this.dayi = dayi;
             this.yearf = yearf;
             this.monthf = monthf;
-            this.monthi = monthi;
+            this.dayf = dayf;
             this.completed = completed;
         }
        
