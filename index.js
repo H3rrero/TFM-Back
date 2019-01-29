@@ -4,6 +4,7 @@ let app = express();
 let bodyParser = require('body-parser');
 const user = require("./entities/users");
 const phase = require('./entities/phases');
+const task = require('./entities/tasks');
 const project = require('./entities/projects');
 var jwt = require('jsonwebtoken')
 
@@ -29,6 +30,12 @@ let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0',
             ,new phase(2, "Prototype done",'2019', '1', '25','2019','3','25','0.12') 
           ,new phase(3, "Test prototype",'2019', '3', '27','2019','4','15','0.15')
         ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')];
+
+let tasks = [new task(0, "Titulo de prueba 1",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
+            ,new task(0, "Titulo de prueba 2",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
+            ,new task(0, "Titulo de prueba 3",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
+          ,new task(0, "Titulo de prueba 4",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
+        ,new task(0, "Titulo de prueba 5",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
