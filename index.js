@@ -31,11 +31,11 @@ let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0',
           ,new phase(3, "Test prototype",'2019', '3', '27','2019','4','15','0.15')
         ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')];
 
-let tasks = [new task(0, "Titulo de prueba 1",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
-            ,new task(0, "Titulo de prueba 2",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
-            ,new task(0, "Titulo de prueba 3",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
-          ,new task(0, "Titulo de prueba 4",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')
-        ,new task(0, "Titulo de prueba 5",'Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan')]; 
+let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','desarrollo')
+            ,new task(2, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','pruebas')
+            ,new task(3, 'Titulo de prueba 3','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','pruebas finalizadas')
+          ,new task(4, 'Titulo de prueba 4','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','produccion')
+        ,new task(5, 'Titulo de prueba 5','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','produccion')]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
@@ -88,8 +88,11 @@ app.get('/:entidad', function (req, res) {
 
         if (entidad == 'users') {
           return res.send(users);
-        } else if (entidad == 'phases')
+        } 
+        else if (entidad == 'phases')
           return res.send(phases);
+        else if(entidad == 'tasks')
+          return res.send(tasks);
         else
           res.send("Seleccione una entidad valida");
     }
