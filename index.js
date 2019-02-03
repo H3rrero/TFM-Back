@@ -25,17 +25,18 @@ let corsOptions = {
 let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
   , new user(1, "user1",'user1', 'Pedro', 'Picapiedra')];
 let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
+let taskp = new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"]);
 let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0','25','0.75')
             ,new phase(1, "Develop",'2019', '0', '26','2019','1','24','0.40')
             ,new phase(2, "Prototype done",'2019', '1', '25','2019','3','25','0.12') 
           ,new phase(3, "Test prototype",'2019', '3', '27','2019','4','15','0.15')
         ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')];
 
-let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','desarrollo')
-            ,new task(2, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','pruebas')
-            ,new task(3, 'Titulo de prueba 3','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','pruebas finalizadas')
-          ,new task(4, 'Titulo de prueba 4','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','produccion')
-        ,new task(5, 'Titulo de prueba 5','Alejandro Fernandez Herrero', 'Descripcion de prueba', '27-Dec','9-Jan','produccion')]; 
+let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','desarrollo','20',["Comentario de prueba 1","comentario de prueba 2"])
+            ,new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"])
+            ,new task(2, 'Titulo de prueba 3','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas finalizadas','40',["Comentario de prueba 1","comentario de prueba 2"])
+          ,new task(3, 'Titulo de prueba 4','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','produccion','50',["Comentario de prueba 1","comentario de prueba 2"])
+        ,new task(4, 'Titulo de prueba 5','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','produccion','60',["Comentario de prueba 1","comentario de prueba 2"])]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
@@ -98,6 +99,55 @@ app.get('/:entidad', function (req, res) {
     }
   })
 });
+
+//Put que modifica una entidad
+app.put('/:entidad/:id', function (req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Content-Type", "application/json");
+  let id = req.params.id;
+  let entidad = req.params.entidad;
+  var token = req.headers['authorization'];
+  let enviada = false;
+  if(!token){
+      res.status(401).send({
+        error: "Es necesario el token de autenticación"
+      })
+      return
+  }
+
+  token = token.replace('Bearer ', '')
+
+  jwt.verify(token, 'Secret Password', function(err, user) {
+    if (err) {
+      res.status(401).send({
+        error: 'Token inválido'
+      })
+    } else {
+
+        if (entidad == 'tasks') {
+          tasks.forEach(function (element, i, plac) {
+            console.log(element.id);
+            console.log(id);
+            console.log( req.body);
+            if (element.id == id) {
+              let pl = new task(element.id, req.body.title,req.body.assigned,req.body.description,req.body.dateI,req.body.dateF,req.body.phase,req.body.hours,req.body.coments);
+              console.log(pl);
+              if(pl.validar()){
+                plac[i] = pl;
+                enviada = true;
+                return  res.send(plac[i]);
+              }
+            }
+            else if (i == plac.length - 1 && !enviada)
+              return res.send({ estado: "seleccione un id valido" });
+          });
+        } 
+        else
+          res.send("Seleccione una entidad valida");
+    }
+  })
+});
+
 //Post que introduce una nueva entidad 
 app.post('/:entidad/register', function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
