@@ -1,6 +1,6 @@
 module.exports =
     class Tasks {
-        constructor(id, title,assigned, description, dateI, dateF,phase,hours,coments) {
+        constructor(id, title,assigned, description, dateI, dateF,phase,hours,coments,userId) {
             this.id = id;
             this.title = title;
             this.assigned = assigned;
@@ -10,6 +10,7 @@ module.exports =
             this.phase = phase;
             this.hours = hours;
             this.coments = coments;
+            this.userId = userId;
         }
         validar() {
 
