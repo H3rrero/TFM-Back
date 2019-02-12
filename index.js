@@ -27,10 +27,11 @@ let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
 let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
 let taskp = new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"]);
 let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0','25','0.75')
-            ,new phase(1, "Develop",'2019', '0', '26','2019','1','24','0.40')
-            ,new phase(2, "Prototype done",'2019', '1', '25','2019','3','25','0.12') 
-          ,new phase(3, "Test prototype",'2019', '3', '27','2019','4','15','0.15')
-        ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')];
+            ,new phase(1, "Develop",'2019', '0', '16','2019','1','24','0.40')
+            ,new phase(2, "Prototype ",'2019', '1', '15','2019','3','26','0.12') 
+          ,new phase(3, "Test prototype",'2019', '3', '17','2019','4','15','0.15')
+        ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')
+        ,new phase(6, "Final documentation",'2019', '5', '16','2019','8','30','0.05')];
 
 let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','desarrollo','20',["Comentario de prueba 1","comentario de prueba 2"],0)
             ,new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"],0)
