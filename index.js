@@ -33,11 +33,11 @@ let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0',
         ,new phase(4, "Run acceptance test",'2019', '4', '16','2019','5','30','0.05')
         ,new phase(6, "Final documentation",'2019', '5', '16','2019','8','30','0.05')];
 
-let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','desarrollo','20',["Comentario de prueba 1","comentario de prueba 2"],0)
-            ,new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"],0)
-            ,new task(2, 'Titulo de prueba 3','Pedro picapiedra', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas finalizadas','40',["Comentario de prueba 1","comentario de prueba 2"],1)
-          ,new task(3, 'Titulo de prueba 4','Pedro picapiedra', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','produccion','50',["Comentario de prueba 1","comentario de prueba 2"],1)
-        ,new task(4, 'Titulo de prueba 5','Pedro picapiedra', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','produccion','60',["Comentario de prueba 1","comentario de prueba 2"],1)]; 
+let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-11T00:00:00.000Z','desarrollo','20',["Comentario de prueba 1","comentario de prueba 2"],0)
+            ,new task(1, 'Titulo de prueba 2','Pedro picapiedra', 'Descripcion de prueba','2019-01-01T00:00:00.000Z','2019-01-11T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"],1)
+            ,new task(2, 'Titulo de prueba 3','Pedro picapiedra', 'Descripcion de prueba', '2019-03-01T00:00:00.000Z','2019-03-03T00:00:00.000Z','pruebas finalizadas','40',["Comentario de prueba 1","comentario de prueba 2"],1)
+          ,new task(3, 'Titulo de prueba 4','Pedro picapiedra', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-03-07T00:00:00.000Z','produccion','50',["Comentario de prueba 1","comentario de prueba 2"],1)
+        ,new task(4, 'Titulo de prueba 5','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z','produccion','60',["Comentario de prueba 1","comentario de prueba 2"],0)]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
