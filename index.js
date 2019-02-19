@@ -65,6 +65,9 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
     res.send(user)
   })
 
+  app.get('/', function (req, res) {
+    res.send('APlicacion para el TFM de Alejandro Fernández Herrero');
+  });
   //Get que devuelve todos los elementos de una entidad
 app.get('/:entidad', function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
