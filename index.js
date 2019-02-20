@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.listen(process.env.PORT , function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
@@ -23,7 +23,14 @@ let corsOptions = {
 
 ////////////////////Datos de prueba hasta que se haga BBDD////////////////////////
 let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
-  , new user(1, "user1",'user1', 'Pedro', 'Picapiedra')];
+  , new user(1, "user1",'user1', 'Pedro', 'Picapiedra')
+  , new user(2, "user2",'user2', 'Juan', 'Fernandez')
+  , new user(3, "user3",'user3', 'Pelayo', 'Iglesias')
+  , new user(4, "user4",'user4', 'Amir', 'Jimenez')
+  , new user(5, "user5",'user5', 'Lara', 'Casasola')
+  , new user(6, "user6",'user6', 'Maria', 'Garcia')
+  , new user(7, "user7",'user7', 'Jose', 'Herrero')
+  , new user(8, "user8",'user8', 'Laura', 'Perez')];
 let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
 let taskp = new task(1, 'Titulo de prueba 2','Alejandro Fernandez Herrero', 'Descripcion de prueba','2019-02-01T00:00:00.000Z','2019-02-01T00:00:00.000Z','pruebas','30',["Comentario de prueba 1","comentario de prueba 2"]);
 let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0','25','0.75',50,200)
@@ -36,8 +43,11 @@ let phases = [new phase(0, "Start prototype prueba",'2019', '0', '1','2019','0',
 let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-02-11T00:00:00.000Z',0,'20',["Comentario de prueba 1","comentario de prueba 2"],0,'desarrollo')
             ,new task(1, 'Titulo de prueba 2','Pedro picapiedra', 'Descripcion de prueba','2019-01-01T00:00:00.000Z','2019-01-11T00:00:00.000Z',0,'30',["Comentario de prueba 1","comentario de prueba 2"],1,'pruebas')
             ,new task(2, 'Titulo de prueba 3','Pedro picapiedra', 'Descripcion de prueba', '2019-03-01T00:00:00.000Z','2019-03-03T00:00:00.000Z',1,'40',["Comentario de prueba 1","comentario de prueba 2"],1,'pruebas finalizadas')
-          ,new task(3, 'Titulo de prueba 4','Pedro picapiedra', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-03-07T00:00:00.000Z',1,'50',["Comentario de prueba 1","comentario de prueba 2"],1,'produccion')
-        ,new task(4, 'Titulo de prueba 5','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'60',["Comentario de prueba 1","comentario de prueba 2"],0,'produccion')]; 
+            ,new task(3, 'Titulo de prueba 4','Pedro picapiedra', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-03-07T00:00:00.000Z',1,'50',["Comentario de prueba 1","comentario de prueba 2"],1,'produccion')
+            ,new task(4, 'Sin asignar 1','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'60',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar')
+            ,new task(5, 'Sin asignar 2','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'60',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar')
+            ,new task(6, 'Sin asignar 3','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'60',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar')
+            ,new task(7, 'Sin asignar 4','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'60',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar')]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
