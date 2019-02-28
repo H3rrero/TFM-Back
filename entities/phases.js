@@ -1,7 +1,8 @@
 module.exports =
     class Projects {
-        constructor(id, name, yeari, monthi, dayi,yearf, monthf, dayf, completed,hours,totalHours) {
+        constructor(id,proyectId, name, yeari, monthi, dayi,yearf, monthf, dayf, completed,hours,totalHours,completedHours) {
             this.id = id;
+            this.proyectId = proyectId;
             this.name = name;
             this.yeari = yeari;
             this.monthi = monthi;
@@ -12,6 +13,7 @@ module.exports =
             this.completed = completed;
             this.hours = hours;
             this.totalHours = totalHours;
+            this.completedHours = completedHours;
         }
        
     }
