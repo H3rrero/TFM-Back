@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.listen(process.env.PORT , function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
@@ -44,9 +44,9 @@ let phases = [new phase(0,0, "Sprint 1",'2019', '0', '1','2019','0','16','1.95',
             ,new phase(1,0, "Sprint 2",'2019', '0', '17','2019','0','30','0.40',77,66,45)
             ,new phase(2, 0,"Sprint 3",'2019', '1', '1','2019','2','6','0.12',0,60,0) 
             ,new phase(3, 0,"Sprint 4",'2019', '2', '1','2019','2','16','0.12',0,60,0) 
-          ,new phase(4,0, "Sprint 5",'2019', '1', '17','2019','2','15','0.15',0,60,0)
-        ,new phase(5, 0,"Sprint 6",'2019', '2', '2','2019','2','17','0.05',0,60,0)
-        ,new phase(6,0, "Sprint 7",'2019', '2', '18','2019','3','3','0.05',0,60,0)
+          ,new phase(4,0, "Sprint 5",'2019', '2', '27','2019','3','15','0.15',0,60,0)
+        ,new phase(5, 0,"Sprint 6",'2019', '3', '16','2019','3','27','0.05',0,60,0)
+        ,new phase(6,0, "Sprint 7",'2019', '2', '19','2019','3','3','0.05',0,60,0)
         ,new phase(7, 0,"Sprint 8",'2019', '3', '4','2019','3','18','0.12',0,60,0) 
         ,new phase(8,0, "Sprint 9",'2019', '3', '19','2019','4','4','0.15',0,60,0)
       ,new phase(9,0,"Sprint 10",'2019', '4', '5','2019','4','20','0.05',0,54,0)];
@@ -58,7 +58,7 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
             ,new task(4, 'Chat fase 2','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-15T00:00:00.000Z',0,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Terminada',false)
             ,new task(5, 'Documentar codigo','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-16T00:00:00.000Z',0,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Terminada',false)
             ,new task(6, 'Recubrimientos metodos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-08T00:00:00.000Z',0,'12','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Terminada',false)
-            ,new task(7, 'Hacer pl de nueva fase','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-08T00:00:00.000Z',0,'9','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Desarrollo',false)
+            ,new task(7, 'Hacer pl de nueva fase','Alejandro Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-08T00:00:00.000Z',0,'9','6',["Comentario de prueba 1","comentario de prueba 2"],0,'Desarrollo',false)
             ,new task(8, 'Maquetacion nueva fase','Pelayo Iglesias', 'Descripcion de prueba','2019-01-01T00:00:00.000Z','2019-01-07T00:00:00.000Z',0,'5','6',["Comentario de prueba 1","comentario de prueba 2"],3,'Pruebas',false)
             ,new task(9, 'Hacer curso vuejs','Pelayo Iglesias', 'Descripcion de prueba', '2019-03-01T00:00:00.000Z','2019-01-15T00:00:00.000Z',0,'6','6',["Comentario de prueba 1","comentario de prueba 2"],3,'Desarrollo',false)
             ,new task(10, 'Cambiar maquetacion nueva fase','Pelayo Iglesias', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-01-18T00:00:00.000Z',1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],3,'Terminada',false)
@@ -72,10 +72,14 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
             ,new task(18, 'Nueva pantalla','Maria Garcia', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-28T00:00:00.000Z',1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],6,'Desarrollo',false)
             ,new task(19, 'Documentacion nueva pantalla','Maria Garcia', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-30T00:00:00.000Z',1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],6,'Pruebas',false)
            ,new task(20, 'Titulo de prueba 5','Jose Herrero', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-01-30T00:00:00.000Z',1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],7,'Produccion',false)
-           ,new task(21, 'Documento fase 4','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'12','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)
-           ,new task(22, 'Implementar interfaz juegos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'3','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)
-           ,new task(23, 'Nueva pantalla juegos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)
-           ,new task(24, 'Documentacion genral','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)]; 
+           ,new task(21, 'Documento fase 4','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'12','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false)
+           ,new task(22, 'Implementar interfaz juegos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'3','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false)
+           ,new task(23, 'Nueva pantalla juegos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'6','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false)
+           ,new task(24, 'Documentacion genral','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',2,'10','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false)
+           ,new task(25, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)
+           ,new task(26, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false)
+           ,new task(27, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false)
+           ,new task(28, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false)]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
@@ -254,7 +258,7 @@ app.put('/:entidad/:id', function (req, res) {
                 let newHours = req.body.hours - plac[i].hours;
                 plac[i] = pl;
                 enviada = true;
-                updatePhases(req.body.phase,newHours,element.state,req.body.state,element.planHours,false);
+                updatePhases(req.body.phase,newHours,element.state,req.body.state,element.planHours,element.phase,false);
                 return  res.send(plac[i]);
               }
             }
@@ -317,22 +321,24 @@ app.post('/:entidad/register', function (req, res) {
 
 
 });
-function updatePhases(idPhase,hours,state,newState,planHours,isNew) {
+function updatePhases(idPhase,hours,state,newState,planHours,newPhase,isNew) {
   for (let index = 0; index < phases.length; index++) {
     const element = phases[index];
+    if(idPhase == newPhase){
     if (element.id == idPhase){
       if(isNew){
         element.totalHours = element.totalHours + hours;
         element.completed = (element.hours/element.totalHours).toFixed(2);
-        phases[index] = element;
+       
       }else{
         element.hours = element.hours + hours;
         element.completed = (element.hours/element.totalHours).toFixed(2);
      
-        phases[index] = element;
+       
       }
       if(state != 'Terminada' && newState == 'Terminada'){
         element.completedHours = parseInt(element.completedHours) + parseInt(planHours);
+       
       }
       if(state == 'Terminada' && newState != 'Terminada'){
         console.log("element.completedHours");
@@ -342,7 +348,10 @@ function updatePhases(idPhase,hours,state,newState,planHours,isNew) {
         element.completedHours = element.completedHours - planHours;
       }
     }
-    
+  }else{
+    element.totalHours = element.totalHours - planHours;
+  }
+  phases[index] = element;
   }
 }
 
