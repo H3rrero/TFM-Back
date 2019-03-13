@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
@@ -40,6 +40,8 @@ let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
   , new user(7, "user7",'user7', 'Jose', 'Herrero')
   , new user(8, "user8",'user8', 'Laura', 'Perez')];
 let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
+                    //id, title,assigned,description,dateI,dateF,phase,hours,planHours,coments,userId,state,deleted
+let taskp = new task(0, '','', '', '','',0,'0','0',[],0,'',false);
 let phases = [new phase(0,0, "Sprint 1",'2019', '0', '1','2019','0','16','1.95',71,60,42)
             ,new phase(1,0, "Sprint 2",'2019', '0', '17','2019','0','30','0.40',77,66,45)
             ,new phase(2, 0,"Sprint 3",'2019', '1', '1','2019','2','6','0.12',0,60,0) 
@@ -171,7 +173,7 @@ app.get('/:entidad', function (req, res) {
           let entidad = req.params.entidad;
           let id = req.params.id;
           if (entidad == 'users') {
-            return res.send(users);
+            return res.send(users[id]);
           } 
           else if (entidad == 'phases')
             return res.send(phases[id]);
@@ -313,6 +315,23 @@ app.post('/:entidad/register', function (req, res) {
           userp.lastname = req.body.lastname;
           users.push(userp);
           res.send(userp);
+        }else if (entidad == 'tasks') {
+          taskp.id = tasks.length;
+
+          taskp.title = req.body.title;
+          taskp.assigned = req.body.assigned;
+          taskp.description = req.body.description;
+          taskp.dateI = req.body.dateI;
+          taskp.dateF = req.body.dateF;
+          taskp.phase = -1;
+          taskp.hours = 0;
+          taskp.planHours = req.body.planHours;
+          taskp.coments = req.body.coments;
+          taskp.userId = req.body.userId;
+          taskp.state = req.body.state;
+          taskp.deleted = false;
+          tasks.push(taskp);
+          res.send(taskp);
         }
         else
           res.send({ estado: "entidad no valida" });
