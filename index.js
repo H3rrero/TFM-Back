@@ -330,8 +330,12 @@ app.post('/:entidad/register', function (req, res) {
           taskp.userId = req.body.userId;
           taskp.state = req.body.state;
           taskp.deleted = false;
-          tasks.push(taskp);
-          res.send(taskp);
+          if(task.validar()){
+            tasks.push(taskp);
+            res.send(taskp);
+          }else{
+            res.send({ estado: "falta algun campo obligatorio" });
+          }
         }
         else
           res.send({ estado: "entidad no valida" });

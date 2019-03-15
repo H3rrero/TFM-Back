@@ -23,8 +23,12 @@ module.exports =
                 this.description == undefined ||
                 this.dateI == undefined ||
                 this.dateF == undefined ||
+                this.state == undefined ||
                 this.phase == undefined ||
                 this.hours == undefined ||
+                this.planHours == undefined ||
+                this.userId == undefined ||
+                this.deleted == undefined ||
                 this.coments == undefined ) {
 
                 return false;
