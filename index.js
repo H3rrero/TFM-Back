@@ -13,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+//process.env.PORT
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port 3000!');
 });
@@ -45,7 +46,7 @@ let taskp = new task(0, '','', '', '','',0,'0','0',[],0,'',false);
 let phases = [new phase(0,0, "Sprint 1",'2019', '0', '1','2019','0','16','1.95',71,60,42)
             ,new phase(1,0, "Sprint 2",'2019', '0', '17','2019','0','30','0.40',77,66,45)
             ,new phase(2, 0,"Sprint 3",'2019', '1', '1','2019','2','6','0.12',0,60,0) 
-            ,new phase(3, 0,"Sprint 4",'2019', '2', '1','2019','2','16','0.12',0,60,0) 
+            ,new phase(3, 0,"Sprint 4",'2019', '2', '1','2019','2','19','0.12',0,60,0) 
           ,new phase(4,0, "Sprint 5",'2019', '2', '27','2019','3','15','0.15',0,60,0)
         ,new phase(5, 0,"Sprint 6",'2019', '3', '16','2019','3','27','0.05',0,60,0)
         ,new phase(6,0, "Sprint 7",'2019', '2', '19','2019','3','3','0.05',0,60,0)
