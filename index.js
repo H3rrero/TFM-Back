@@ -81,8 +81,8 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
            ,new task(24, 'Documentacion genral','', 'Descripcion de prueba', '2019-03-02T00:00:00.000Z','2019-03-05T00:00:00.000Z',2,'10','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false,false)
            ,new task(25, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
            ,new task(26, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
-           ,new task(27, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
-           ,new task(28, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
+           ,new task(27, 'Redaccion de requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
+           ,new task(28, 'Documentacion requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
