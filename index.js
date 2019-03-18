@@ -52,7 +52,7 @@ let phases = [new phase(0,0, "Sprint 1",'2019', '0', '1','2019','0','16','1.95',
         ,new phase(6,0, "Sprint 7",'2019', '2', '19','2019','3','3','0.05',0,60,0)
         ,new phase(7, 0,"Sprint 8",'2019', '3', '4','2019','3','18','0.12',0,60,0) 
         ,new phase(8,0, "Sprint 9",'2019', '3', '19','2019','4','4','0.15',0,60,0)
-      ,new phase(9,0,"Sprint 10",'2019', '4', '5','2019','4','20','0.05',0,54,0)];
+      ,new phase(9,0,"Sprint 10",'2019', '4', '5','2019','4','20','0.05',0,54,0)]; 
                     //id, title,              assigned,                      description,             dateI,                      dateF,                    phase,hours,planHours,coments,                                       userId,state,deleted
 let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-01-02T00:00:00.000Z',0,'10','6',["Comentario de prueba 1","comentario de prueba 2"],0,'Terminada',false,false)
             ,new task(1, 'Titulo de prueba 2','Pedro picapiedra', 'Descripcion de prueba','2019-01-01T00:00:00.000Z','2019-01-04T00:00:00.000Z',0,'3','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Terminada',false,false)
