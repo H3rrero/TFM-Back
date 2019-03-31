@@ -2,7 +2,7 @@ let express = require('express');
 let cors = require('cors');
 let app = express();
 let bodyParser = require('body-parser');
-const user = require("./entities/users");
+const usuario = require('./entities/usuarios');
 const phase = require('./entities/phases');
 const task = require('./entities/tasks');
 const project = require('./entities/projects');
@@ -14,7 +14,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 //process.env.PORT
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
@@ -24,35 +24,33 @@ let corsOptions = {
 }
 
 ////////////////////Datos de prueba hasta que se haga BBDD////////////////////////
-let projects =[new project(0,'proyecto prueba','descripcion de prueba',600)];
+let projects =[new project(0,'proyecto prueba','descripcion de prueba',600,false),
+              new project(1,'proyecto prueba 2','descripcion de prueba 2',600,false)];
 let states = [new state(0,'Backlog')
               ,new state(1,'Desarrollo')
               ,new state(2,'Pruebas')
               ,new state(3,'Pruebas Finalizadas')
               ,new state(4,'Produccion')
               ,new state(5,'Terminada')];
-let users = [new user(0, "admin",'admin', 'Alejandro', 'Fernandez')
-  , new user(1, "user1",'user1', 'Pedro', 'Picapiedra')
-  , new user(2, "user2",'user2', 'Juan', 'Fernandez')
-  , new user(3, "user3",'user3', 'Pelayo', 'Iglesias')
-  , new user(4, "user4",'user4', 'Amir', 'Jimenez')
-  , new user(5, "user5",'user5', 'Lara', 'Casasola')
-  , new user(6, "user6",'user6', 'Maria', 'Garcia')
-  , new user(7, "user7",'user7', 'Jose', 'Herrero')
-  , new user(8, "user8",'user8', 'Laura', 'Perez')];
-let userp = new user(0, "admin",'admin', 'Alejandro', 'Fernandez');
+let users = [new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',"",false)
+  , new usuario(1,0, "man1",'man1', 'Pedro', 'Picapiedra','manager',"",false)
+  , new usuario(2,0, "user2",'user2', 'Juan', 'Fernandez','user',"",true)
+  , new usuario(3,0, "user3",'user3', 'Pelayo', 'Iglesias','user',"",false)
+  , new usuario(4,0, "user4",'user4', 'Amir', 'Jimenez','user',"",false)
+  , new usuario(5,0, "user5",'user5', 'Lara', 'Casasola','user',"",false)
+  , new usuario(6,0, "user6",'user6', 'Maria', 'Garcia','user',"",false)
+  , new usuario(7,0, "user7",'user7', 'Jose', 'Herrero','user',"",false)
+  , new usuario(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false)
+  ,new usuario(9,1, "user9",'user9', 'Pedro', 'Garcia','user',"",false)
+  , new usuario(10,1, "user10",'user10', 'Maria', 'Herrero','user',"",false)
+  , new usuario(11,1, "user11",'user11', 'Juan', 'Perez','user',"",false)];
+//let userp = new user(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false);
                     //id, title,assigned,description,dateI,dateF,phase,hours,planHours,coments,userId,state,deleted
 //let taskp = new task(0, '','', '', '','',0,'0','0',[],0,'',false);
-let phases = [new phase(0,0, "Sprint 1",'2019', '0', '1','2019','0','16','1.95',71,60,42)
-            ,new phase(1,0, "Sprint 2",'2019', '0', '17','2019','0','30','0.40',77,66,45)
-            ,new phase(2, 0,"Sprint 3",'2019', '1', '1','2019','2','6','0.12',15,60,12) 
-            ,new phase(3, 0,"Sprint 4",'2019', '2', '1','2019','2','19','0.12',0,60,0) 
-          ,new phase(4,0, "Sprint 5",'2019', '2', '27','2019','3','15','0.15',0,60,0)
-        ,new phase(5, 0,"Sprint 6",'2019', '3', '16','2019','3','27','0.05',0,60,0)
-        ,new phase(6,0, "Sprint 7",'2019', '2', '19','2019','3','3','0.05',0,60,0)
-        ,new phase(7, 0,"Sprint 8",'2019', '3', '4','2019','3','18','0.12',0,60,0) 
-        ,new phase(8,0, "Sprint 9",'2019', '3', '19','2019','4','4','0.15',0,60,0)
-      ,new phase(9,0,"Sprint 10",'2019', '4', '5','2019','4','20','0.05',0,54,0)]; 
+let phases = [new phase(0,0, "Sprint 1",'2019-01-01T00:00:00.000Z','2019-01-16T00:00:00.000Z','1.95',71,60,42)
+            ,new phase(1,0, "Sprint 2",'2019-01-17T00:00:00.000Z','2019-01-30T00:00:00.000Z','0.40',77,66,45)
+            ,new phase(2, 0,"Sprint 3",'2019-02-01T00:00:00.000Z','2019-03-06T00:00:00.000Z','0.12',15,60,12) 
+            ,new phase(3, 0,"Sprint 4",'2019-03-07T00:00:00.000Z','2019-04-29T00:00:00.000Z','0.12',0,60,0)]; 
                     //id, title,              assigned,                      description,             dateI,                      dateF,                    phase,hours,planHours,coments,                                       userId,state,deleted
 let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'Descripcion de prueba', '2019-02-01T00:00:00.000Z','2019-01-02T00:00:00.000Z',0,'10','6',["Comentario de prueba 1","comentario de prueba 2"],0,'Terminada',false,false)
             ,new task(1, 'Titulo de prueba 2','Pedro picapiedra', 'Descripcion de prueba','2019-01-01T00:00:00.000Z','2019-01-04T00:00:00.000Z',0,'3','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Terminada',false,false)
@@ -81,30 +79,31 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
            ,new task(24, 'Documentacion genral','', 'Descripcion de prueba', '2019-03-02T00:00:00.000Z','2019-03-05T00:00:00.000Z',2,'10','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false,false)
            ,new task(25, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
            ,new task(26, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
-           ,new task(27, 'Redaccion de requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
-           ,new task(28, 'Documentacion requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-14T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
+           ,new task(27, 'Redaccion de requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
+           ,new task(28, 'Documentacion requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
     var password = req.body.password
-    if( !(username === 'admin' && password === 'admin')){
-      res.status(401).send({
-        error: 'usuario o contraseña inválidos'
-      })
-      return
-    }
-   
-    var tokenData = {
-      username: username
-      // ANY DATA
-    }
-   
-    var token = jwt.sign(tokenData, 'Secret Password', {
-       expiresIn: 60 * 60 * 24 // expires in 24 hours
+    users.forEach(element => {
+      if( (username === element.username && password === element.password)){
+        var tokenData = {
+          username: username
+          // ANY DATA
+        }
+       
+        var token = jwt.sign(tokenData, 'Secret Password', {
+           expiresIn: 60 * 60 * 24 // expires in 24 hours
+        })
+        element.token = token;
+        res.send(element)
+      }
+     
+    });
+    res.status(401).send({
+      error: 'usuario o contraseña inválidos'
     })
-    users[0].token = token;
-    let user = users[0];
-    res.send(user)
+    return
   })
 
   app.get('/', function (req, res) {
@@ -229,6 +228,43 @@ app.get('/tasks/tasksByPhase/:id', function (req, res) {
     }
   })
 });
+  //Put que modifica una entidad
+  app.get('/tasks/usersByProject/:id', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
+    let id = req.params.id;
+    var token = req.headers['authorization'];
+    let usersP = [];
+    if(!token){
+        res.status(401).send({
+          error: "Es necesario el token de autenticación"
+        })
+        return
+    }
+  
+    token = token.replace('Bearer ', '')
+  
+    jwt.verify(token, 'Secret Password', function(err, user) {
+      if (err) {
+        res.status(401).send({
+          error: 'Token inválido'
+        })
+      } else {
+  
+           users.forEach(function (element, i, plac) {
+              if (element.project == id) {
+                usersP.push(plac[i]);
+              }
+              if(plac.length == i+1)
+              {
+                return  res.send(usersP);
+              }
+            });
+           
+      }
+    })
+  });
+
 //Put que modifica una entidad
 app.put('/:entidad/:id', function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -279,7 +315,39 @@ app.put('/:entidad/:id', function (req, res) {
             else if (i == plac.length - 1 && !enviada)
               return res.send({ estado: "seleccione un id valido" });
           });
-        } 
+        }else if (entidad == 'projects') {
+          projects.forEach(function (element, i, plac) {
+            if (element.id == id) {
+              let pl = new project(element.id,req.body.name,req.body.description,req.body.planHours,req.body.deleted);
+              plac[i] = pl;
+              enviada = true;
+              return  res.send(plac[i]);
+            }
+            else if (i == plac.length - 1 && !enviada)
+              return res.send({ estado: "seleccione un id valido" });
+          });
+        } else if (entidad == 'users') {
+          users.forEach(function (element, i, plac) {
+            if (element.id == id) {
+              
+              let userp = new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',"",false);
+              userp.id = element.id;
+              userp.username = req.body.username;
+              userp.password = req.body.password;
+              userp.firstname = req.body.firstname;
+              userp.lastname = req.body.lastname;
+              userp.token = req.body.token;
+              userp.rol = req.body.rol;
+              userp.projectId = req.body.projectId;
+              userp.deleted = req.body.deleted; 
+              plac[i] = userp;
+              enviada = true;
+              return  res.send(plac[i]);
+            }
+            else if (i == plac.length - 1 && !enviada)
+              return res.send({ estado: "seleccione un id valido" });
+          });
+        }
         else
           res.send("Seleccione una entidad valida");
     }
@@ -309,11 +377,18 @@ app.post('/:entidad/register', function (req, res) {
     } else {
         let entidad = req.params.entidad;
         if (entidad == 'users') {
+         let userp = new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',"",false);
           userp.id = users.length;
           userp.username = req.body.username;
           userp.password = req.body.password;
           userp.firstname = req.body.firstname;
           userp.lastname = req.body.lastname;
+          userp.token = req.body.token;
+          userp.rol = req.body.rol;
+          userp.projectId = req.body.projectId;
+          userp.deleted = req.body.deleted;
+          console.log(" req.body.projectId;")
+          console.log( req.body.projectId);
           users.push(userp);
           res.send(userp);
         }else if (entidad == 'tasks') {
@@ -337,6 +412,40 @@ app.post('/:entidad/register', function (req, res) {
           if(taskp.validar()){
             tasks.push(taskp);
             res.send(tasks);
+          }else{
+            res.send({ estado: "falta algun campo obligatorio" });
+          }
+        }else if (entidad == 'phase') {
+          let phasep = new phase(0,0, "",'','','',0,0,0);
+          
+          phasep.id = phases.length;
+          phasep.name = req.body.name;
+          phasep.proyectId = req.body.proyectId;
+          phasep.dateI = req.body.dateI;
+          phasep.dateF = req.body.dateF;
+          phasep.completed = req.body.completed;
+          phasep.hours = req.body.hours;
+          phasep.totalHours = req.body.totalHours;
+          phasep.completedHours = req.body.completedHours;
+
+          if(phasep.validar()){
+            phases.push(phasep);
+            res.send(phases);
+          }else{
+            res.send({ estado: "falta algun campo obligatorio" });
+          }
+        }else if (entidad == 'project') {
+          let projectp = new project(0,'','',0,false);
+          
+          projectp.id = projects.length;
+          projectp.name = req.body.name;
+          projectp.description = req.body.description;
+          projectp.planHours = req.body.planHours;
+          projectp.deleted = req.body.deleted;
+
+          if(projectp.validar()){
+            projects.push(projectp);
+            res.send(projects);
           }else{
             res.send({ estado: "falta algun campo obligatorio" });
           }

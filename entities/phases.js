@@ -1,19 +1,32 @@
 module.exports =
-    class Projects {
-        constructor(id,proyectId, name, yeari, monthi, dayi,yearf, monthf, dayf, completed,hours,totalHours,completedHours) {
+    class Phase {
+        constructor(id,proyectId, name, dateI,dateF,completed,hours,totalHours,completedHours) {
             this.id = id;
             this.proyectId = proyectId;
             this.name = name;
-            this.yeari = yeari;
-            this.monthi = monthi;
-            this.dayi = dayi;
-            this.yearf = yearf;
-            this.monthf = monthf;
-            this.dayf = dayf;
+            this.dateI = dateI;
+            this.dateF = dateF;
             this.completed = completed;
             this.hours = hours;
             this.totalHours = totalHours;
             this.completedHours = completedHours;
         }
-       
+        validar() {
+
+            if ( this.id == undefined ||
+                this.proyectId == undefined ||
+                this.name == undefined ||
+                this.dateI == undefined ||
+                this.dateF == undefined ||
+                this.completed == undefined ||
+                this.hours == undefined ||
+                this.totalHours == undefined ||
+                this.completedHours == undefined) {
+
+                return false;
+            }
+            else
+                return true;
+
+        }
     }
