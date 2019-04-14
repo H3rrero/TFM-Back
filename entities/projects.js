@@ -11,9 +11,13 @@ module.exports =
 
             if ( this.id == undefined ||
                 this.name == undefined ||
+                this.name.trim() == "" ||
                 this.description == undefined ||
+                this.description.trim() == "" ||
                 this.planHours == undefined ||
-                this.deleted == undefined ) {
+                this.planHours < 0 ||
+                this.deleted == undefined ||
+                typeof this.deleted !== "boolean") {
 
                 return false;
             }

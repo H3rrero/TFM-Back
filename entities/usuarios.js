@@ -12,5 +12,26 @@ module.exports =
             this.deleted = deleted;
             this.type = "users";
         }
-       
+        validar() {
+
+            if ( this.id == undefined ||
+                this.username == undefined ||
+                this.username.trim() == "" ||
+                this.password == undefined ||
+                this.password.trim() == "" ||
+                this.firstname == undefined ||
+                this.firstname.trim() == "" ||
+                this.lastname == undefined ||
+                this.lastname.trim() == "" ||
+                this.rol == undefined ||
+                this.rol.trim() == ""  ||
+                typeof this.deleted !== "boolean" ||
+                this.projectId < -1 ) {
+
+                return false;
+            }
+            else
+                return true;
+
+        }
     }

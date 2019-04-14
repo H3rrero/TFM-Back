@@ -34,7 +34,7 @@ let states = [new state(0,'Backlog')
               ,new state(5,'Terminada')];
 let users = [new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',"",false)
   , new usuario(1,0, "man1",'man1', 'Pedro', 'Picapiedra','manager',"",false)
-  , new usuario(2,0, "user2",'user2', 'Juan', 'Fernandez','user',"",true)
+  , new usuario(2,0, "user2",'user2', 'Juan', 'Fernandez','user',"",false)
   , new usuario(3,0, "user3",'user3', 'Pelayo', 'Iglesias','user',"",false)
   , new usuario(4,0, "user4",'user4', 'Amir', 'Jimenez','user',"",false)
   , new usuario(5,0, "user5",'user5', 'Lara', 'Casasola','user',"",false)
@@ -43,7 +43,13 @@ let users = [new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',
   , new usuario(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false)
   ,new usuario(9,1, "user9",'user9', 'Pedro', 'Garcia','user',"",false)
   , new usuario(10,1, "user10",'user10', 'Maria', 'Herrero','user',"",false)
-  , new usuario(11,1, "user11",'user11', 'Juan', 'Perez','user',"",false)];
+  , new usuario(11,1, "user11",'user11', 'Juan', 'Perez','user',"",false)
+  ,new usuario(12,-1, "user12",'user6', 'Maria', 'Garcia','user',"",false)
+  , new usuario(13,-1, "user13",'user7', 'Jose', 'Herrero','manager',"",false)
+  , new usuario(14,-1, "user14",'user8', 'Laura', 'Perez','user',"",false)
+  ,new usuario(15,-1, "user15",'user9', 'Pedro', 'Garcia','user',"",false)
+  , new usuario(16,-1, "user16",'user10', 'Maria', 'Herrero','manager',"",false)
+  , new usuario(17,-1, "user17",'user11', 'Juan', 'Perez','user',"",false)];
 //let userp = new user(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false);
                     //id, title,assigned,description,dateI,dateF,phase,hours,planHours,coments,userId,state,deleted
 //let taskp = new task(0, '','', '', '','',0,'0','0',[],0,'',false);
@@ -74,13 +80,13 @@ let tasks = [new task(0, 'Titulo de prueba 1','Alejandro Fernandez Herrero', 'De
             ,new task(19, 'Documentacion nueva pantalla','Maria Garcia', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-01-30T00:00:00.000Z',1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],6,'Terminada',false,false)
            ,new task(20, 'Titulo de prueba 5','Jose Herrero', 'Descripcion de prueba', '2019-03-04T00:00:00.000Z','2019-01-30T00:00:00.000Z',1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],7,'Terminada',false,false)
            ,new task(21, 'Documento fase 4','', 'Descripcion de prueba', '2019-02-011T00:00:00.000Z','2019-02-14T00:00:00.000Z',2,'12','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Terminada',false,false)
-           ,new task(22, 'Implementar interfaz juegos','', 'Descripcion de prueba', '2019-02-021T00:00:00.000Z','2019-02-23T00:00:00.000Z',2,'3','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Terminada',false,false)
+           ,new task(22, 'Implementar interfaz juegos','', 'Descripcion de prueba', '2019-02-21T00:00:00.000Z','2019-02-23T00:00:00.000Z',2,'3','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Terminada',false,false)
            ,new task(23, 'Nueva pantalla juegos','', 'Descripcion de prueba', '2019-03-01T00:00:00.000Z','2019-03-03T00:00:00.000Z',2,'6','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false,false)
            ,new task(24, 'Documentacion genral','', 'Descripcion de prueba', '2019-03-02T00:00:00.000Z','2019-03-05T00:00:00.000Z',2,'10','6',["Comentario de prueba 1","comentario de prueba 2"],1,'Pruebas',false,false)
-           ,new task(25, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
-           ,new task(26, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
-           ,new task(27, 'Redaccion de requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
-           ,new task(28, 'Documentacion requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-011T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
+           ,new task(25, 'Redaccion de requisitos','', 'Descripcion de prueba', '2019-03-11T00:00:00.000Z','2019-03-13T00:00:00.000Z',-1,'6','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
+           ,new task(26, 'Documentacion requisitos','', 'Descripcion de prueba', '2019-03-11T00:00:00.000Z','2019-03-13T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],-1,'sin asignar',false,false)
+           ,new task(27, 'Redaccion de requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-11T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'6','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)
+           ,new task(28, 'Documentacion requisitos','Juan Fernandez', 'Descripcion de prueba', '2019-03-11T00:00:00.000Z','2019-03-24T00:00:00.000Z',3,'10','6',["Comentario de prueba 1","comentario de prueba 2"],2,'Produccion',false,false)]; 
 
   app.post('/login', (req, res) => {
     var username = req.body.username
@@ -228,7 +234,7 @@ app.get('/tasks/tasksByPhase/:id', function (req, res) {
     }
   })
 });
-  //Put que modifica una entidad
+  //obtiene los usuarios de un proyecto
   app.get('/tasks/usersByProject/:id', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
@@ -291,14 +297,19 @@ app.put('/:entidad/:id', function (req, res) {
 
         if (entidad == 'tasks') {
           tasks.forEach(function (element, i, plac) {
+            let state = req.body.state;
+            if(req.body.userId != -1 && req.body.state == "sin asignar")
+              state = "Backlog";
             if (element.id == id) {
-              let pl = new task(element.id, req.body.title,req.body.assigned,req.body.description,req.body.dateI,req.body.dateF,req.body.phase,req.body.hours,req.body.planHours,req.body.coments,req.body.userId,req.body.state,req.body.deleted,req.body.finish);
-              if(pl.validar()){
-                let newHours = req.body.hours - plac[i].hours;
-                plac[i] = pl;
-                enviada = true;
-                updatePhases(req.body.phase,newHours,element.state,req.body.state,element.planHours,element.phase,false);
-                return  res.send(plac[i]);
+              let pl = new task(element.id, req.body.title,req.body.assigned,req.body.description,req.body.dateI,req.body.dateF,req.body.phase,req.body.hours,req.body.planHours,req.body.coments,req.body.userId,state,req.body.deleted,req.body.finish);
+              if(pl.validar(req.body.dateI,req.body.dateF)){
+                  let newHours = req.body.hours - plac[i].hours;
+                  plac[i] = pl;
+                  enviada = true;
+                  updatePhases(req.body.phase,newHours,element.state,req.body.state,element.planHours,element.phase,false);
+                  return  res.send(plac[i]);
+              } else{
+                return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
               }
             }
             else if (i == plac.length - 1 && !enviada)
@@ -308,9 +319,13 @@ app.put('/:entidad/:id', function (req, res) {
           phases.forEach(function (element, i, plac) {
             if (element.id == id) {
               let pl = new phase(element.id,req.body.proyectId,req.body.name,req.body.yeari,req.body.monthi,req.body.dayi,req.body.yearf,req.body.monthf,req.body.dayf,req.body.completed,req.body.hours,req.body.totalHours,req.body.completedHours);
-              plac[i] = pl;
-              enviada = true;
-              return  res.send(plac[i]);
+              if(pl.validar()){
+                plac[i] = pl;
+                enviada = true;
+                return  res.send(plac[i]);
+              }else{
+                return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
+              }
             }
             else if (i == plac.length - 1 && !enviada)
               return res.send({ estado: "seleccione un id valido" });
@@ -319,9 +334,13 @@ app.put('/:entidad/:id', function (req, res) {
           projects.forEach(function (element, i, plac) {
             if (element.id == id) {
               let pl = new project(element.id,req.body.name,req.body.description,req.body.planHours,req.body.deleted);
-              plac[i] = pl;
-              enviada = true;
-              return  res.send(plac[i]);
+              if(pl.validar()){
+                plac[i] = pl;
+                enviada = true;
+                return  res.send(plac[i]);
+              }else{
+                return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
+              }
             }
             else if (i == plac.length - 1 && !enviada)
               return res.send({ estado: "seleccione un id valido" });
@@ -340,9 +359,13 @@ app.put('/:entidad/:id', function (req, res) {
               userp.rol = req.body.rol;
               userp.projectId = req.body.projectId;
               userp.deleted = req.body.deleted; 
-              plac[i] = userp;
-              enviada = true;
+              if(userp.validar()){
+                plac[i] = userp;
+                enviada = true;
               return  res.send(plac[i]);
+              }else{
+                return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
+              }
             }
             else if (i == plac.length - 1 && !enviada)
               return res.send({ estado: "seleccione un id valido" });
@@ -387,10 +410,12 @@ app.post('/:entidad/register', function (req, res) {
           userp.rol = req.body.rol;
           userp.projectId = req.body.projectId;
           userp.deleted = req.body.deleted;
-          console.log(" req.body.projectId;")
-          console.log( req.body.projectId);
-          users.push(userp);
-          res.send(userp);
+          if(userp.validar()){
+            users.push(userp);
+            res.send(userp);
+          }else{
+            return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
+          }
         }else if (entidad == 'tasks') {
           let taskp = new task(0, '','', '', '','',0,'0','0',[],0,'',false);
           
@@ -401,7 +426,7 @@ app.post('/:entidad/register', function (req, res) {
           taskp.description = req.body.description;
           taskp.dateI = req.body.dateI;
           taskp.dateF = req.body.dateF;
-          taskp.phase = -1;
+          taskp.phase = req.body.phase;
           taskp.hours = 0;
           taskp.planHours = req.body.planHours;
           taskp.coments = req.body.coments;
@@ -413,7 +438,7 @@ app.post('/:entidad/register', function (req, res) {
             tasks.push(taskp);
             res.send(tasks);
           }else{
-            res.send({ estado: "falta algun campo obligatorio" });
+            return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
           }
         }else if (entidad == 'phase') {
           let phasep = new phase(0,0, "",'','','',0,0,0);
@@ -432,7 +457,7 @@ app.post('/:entidad/register', function (req, res) {
             phases.push(phasep);
             res.send(phases);
           }else{
-            res.send({ estado: "falta algun campo obligatorio" });
+            return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
           }
         }else if (entidad == 'project') {
           let projectp = new project(0,'','',0,false);
@@ -447,7 +472,7 @@ app.post('/:entidad/register', function (req, res) {
             projects.push(projectp);
             res.send(projects);
           }else{
-            res.send({ estado: "falta algun campo obligatorio" });
+            return res.send({ estado: "Alguno de los campos proporcionados no es correcto" });
           }
         }
         else

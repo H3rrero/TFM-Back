@@ -16,12 +16,19 @@ module.exports =
             if ( this.id == undefined ||
                 this.proyectId == undefined ||
                 this.name == undefined ||
+                this.name.trim() == "" ||
                 this.dateI == undefined ||
+                new Date(this.dateI)  == 'Invalid Date' ||
+                new Date(this.dateF)  == 'Invalid Date' || 
                 this.dateF == undefined ||
-                this.completed == undefined ||
+                parseFloat(this.completed) == undefined ||
+                parseFloat(this.completed) >= 0 ||
                 this.hours == undefined ||
+                this.hours < 0 ||
                 this.totalHours == undefined ||
-                this.completedHours == undefined) {
+                this.totalHours < 0 ||
+                this.completedHours == undefined ||
+                this.completedHours < 0) {
 
                 return false;
             }
