@@ -42,13 +42,13 @@ let users = [new usuario(0,0, "admin",'admin', 'Alejandro', 'Fernandez','admin',
   , new usuario(7,0, "user7",'user7', 'Jose', 'Herrero','user',"",false)
   , new usuario(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false)
   ,new usuario(9,1, "user9",'user9', 'Pedro', 'Garcia','user',"",false)
-  , new usuario(10,1, "user10",'user10', 'Maria', 'Herrero','user',"",false)
+  , new usuario(10,1, "user10",'user10', 'Maria', 'Herrero','manager',"",false)
   , new usuario(11,1, "user11",'user11', 'Juan', 'Perez','user',"",false)
   ,new usuario(12,-1, "user12",'user6', 'Maria', 'Garcia','user',"",false)
-  , new usuario(13,-1, "user13",'user7', 'Jose', 'Herrero','manager',"",false)
+  , new usuario(13,-1, "user13",'user7', 'Jose', 'Herrero','user',"",false)
   , new usuario(14,-1, "user14",'user8', 'Laura', 'Perez','user',"",false)
   ,new usuario(15,-1, "user15",'user9', 'Pedro', 'Garcia','user',"",false)
-  , new usuario(16,-1, "user16",'user10', 'Maria', 'Herrero','manager',"",false)
+  , new usuario(16,-1, "user16",'user10', 'Maria', 'Herrero','user',"",false)
   , new usuario(17,-1, "user17",'user11', 'Juan', 'Perez','user',"",false)];
 //let userp = new user(8,0, "user8",'user8', 'Laura', 'Perez','user',"",false);
                     //id, title,assigned,description,dateI,dateF,phase,hours,planHours,coments,userId,state,deleted
