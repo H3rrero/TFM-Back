@@ -1,7 +1,8 @@
 module.exports =
     class Tasks {
-        constructor(id, title,assigned, description, dateI, dateF,phase,hours,planHours,coments,userId,state,deleted,finish) {
+        constructor(id,projectId, title,assigned, description, dateI, dateF,phase,hours,planHours,coments,userId,state,deleted,finish) {
             this.id = id;
+            this.projectId = projectId;
             this.title = title;
             this.assigned = assigned;
             this.description = description;

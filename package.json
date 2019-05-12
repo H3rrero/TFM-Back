@@ -11,9 +11,16 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-brute": "^1.0.1",
+    "express-brute-memcached": "0.0.1",
     "js2xmlparser": "^3.0.0",
-    "jsonwebtoken": "^8.4.0"
+    "jsonwebtoken": "^8.4.0",
+    "moment": "^2.24.0",
+    "rate-limiter-flexible": "^1.0.1",
+    "redis": "^2.8.0",
+    "redis-server": "^1.2.2"
   }
 }
