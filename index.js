@@ -147,7 +147,7 @@ redisClient.on("ready",function () {
 
 //process.env.PORT
 app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Example app listening on port 3000!'); 
 });
 
 ////////////////////Datos de prueba hasta que se haga BBDD////////////////////////
