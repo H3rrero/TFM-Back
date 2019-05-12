@@ -16,6 +16,7 @@
     "express": "^4.16.4",
     "express-brute": "^1.0.1",
     "express-brute-memcached": "0.0.1",
+    "ioredis": "^4.9.3",
     "js2xmlparser": "^3.0.0",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.24.0",
