@@ -8,27 +8,20 @@ const task = require('./entities/tasks');
 const project = require('./entities/projects');
 const state = require('./entities/states');
 var jwt = require('jsonwebtoken')
-//const redis = require('redis');
-var Redis = require('ioredis');
-var url   = require('url');
-redis_uri = url.parse(process.env.REDIS_URL);
-
-var redis = new Redis({
-  port: Number(redis_uri.port) + 1,
-  host: redis_uri.hostname,
-  password: redis_uri.auth.split(':')[1],
-  db: 0,
-  tls: {
-    rejectUnauthorized: false,
-    requestCert: true,
-    agent: false
-  }
-});
-
 const { RateLimiterRedis } = require('rate-limiter-flexible');
-const redisClient = redis.createClient({
-  enable_offline_queue: false,
-});
+
+if (process.env.REDISTOGO_URL) {
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  var redis = require("redis").createClient(rtg.port, rtg.hostname);
+
+  redis.auth(rtg.auth.split(":")[1]);
+} else {
+  var redis = require("redis");
+  var redisClient = redis.createClient({
+    enable_offline_queue: false,
+  });
+}
+
 const maxWrongAttemptsByIPperDay = 100;
 const maxConsecutiveFailsByUsernameAndIP = 5;
 
