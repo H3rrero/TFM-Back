@@ -81,6 +81,7 @@ async function loginRoute(req, res) {
     limiterSlowBruteByIP.get(ipAddr),
   ]);
   let retrySecs = 0;
+  console.log(req.connection);
   console.log(resSlowByIP);
   // Check if IP or Username + IP is already blocked
   if (resSlowByIP !== null && resSlowByIP.remainingPoints <= 0) {
