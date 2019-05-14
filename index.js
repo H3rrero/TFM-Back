@@ -37,7 +37,7 @@ const limiterConsecutiveFailsByUsernameAndIP = new RateLimiterRedis({
   redis: redisClient,
   keyPrefix: 'login_fail_consecutive_username_and_ip',
   points: maxConsecutiveFailsByUsernameAndIP,
-  duration: 30, 
+  duration: 60*2, 
   blockDuration: 60, });
 
 const getUsernameIPkey = (username, ip) => `${username}_${ip}`;
