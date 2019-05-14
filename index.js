@@ -9,6 +9,8 @@ const project = require('./entities/projects');
 const state = require('./entities/states');
 var jwt = require('jsonwebtoken')
 const { RateLimiterRedis } = require('rate-limiter-flexible');
+const router = express.Router();
+const browser = require('browser-detect');
 
 if (process.env.REDISTOGO_URL) {
   var rtg   = require("url").parse(process.env.REDISTOGO_URL);
@@ -74,8 +76,11 @@ var startTime;
 
 async function loginRoute(req, res) {
   const ipAddr = req.connection.remoteAddress;
-  const usernameIPkey = getUsernameIPkey(req.body.username, ipAddr);
+  console.log(browser(req.headers['user-agent']));
+  const result = browser(req.headers['user-agent']);
+  const usernameIPkey = (result.name == 'firefox') ? req.body.username : getUsernameIPkey(req.body.username, ipAddr);
 
+  console.log(usernameIPkey);
   const [resUsernameAndIP, resSlowByIP] = await Promise.all([
     limiterConsecutiveFailsByUsernameAndIP.get(usernameIPkey),
     limiterSlowBruteByIP.get(ipAddr),
@@ -160,7 +165,7 @@ redisClient.on("ready",function () {
 });
 
 //process.env.PORT
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!'); 
 });
 
