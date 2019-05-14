@@ -38,7 +38,7 @@ const limiterConsecutiveFailsByUsernameAndIP = new RateLimiterRedis({
   keyPrefix: 'login_fail_consecutive_username_and_ip',
   points: maxConsecutiveFailsByUsernameAndIP,
   duration: 30, 
-  blockDuration: 5, });
+  blockDuration: 60, });
 
 const getUsernameIPkey = (username, ip) => `${username}_${ip}`;
 
@@ -94,7 +94,7 @@ async function loginRoute(req, res) {
   if (retrySecs > 0) {
     console.log(resUsernameAndIP);
     console.log(usernameIPkey);
-    if(resUsernameAndIP.consumedPoints == 5 && startTime == undefined){
+   /* if(resUsernameAndIP.consumedPoints == 5 && startTime == undefined){
       startTime = new Date();
     }else{
       endTime = new Date();
@@ -109,7 +109,7 @@ async function loginRoute(req, res) {
         startTime = undefined;
         await loginRoute(req,res);
       }
-    }
+    }*/
     res.set('Retry-After', String(retrySecs));
     res.status(429).send({error:'Too Many Requests',rol:'nan'});
   } else {
