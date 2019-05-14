@@ -12,11 +12,8 @@ const { RateLimiterRedis } = require('rate-limiter-flexible');
 
 if (process.env.REDISTOGO_URL) {
   var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-  console.log("He pasado por redis to go");
-  console.log(rtg);
   var redis = require("redis");
   var redisClient = redis.createClient(rtg.port, rtg.hostname);
-  console.log(redis);
   redisClient.auth(rtg.auth.split(":")[1]);
 } else {
   var redis = require("redis");
@@ -93,6 +90,8 @@ async function loginRoute(req, res) {
   }
   
   if (retrySecs > 0) {
+    console.log(resUsernameAndIP);
+    console.log(usernameIPkey);
     if(resUsernameAndIP.consumedPoints == 5 && startTime == undefined){
       startTime = new Date();
     }else{
@@ -158,7 +157,7 @@ redisClient.on("ready",function () {
 });
 
 //process.env.PORT
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!'); 
 });
 
