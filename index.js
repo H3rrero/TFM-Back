@@ -88,7 +88,9 @@ async function loginRoute(req, res) {
   } else if (resUsernameAndIP !== null && resUsernameAndIP.remainingPoints <= 0) {
     retrySecs = Math.round(resUsernameAndIP.msBeforeNext / 1000) || 1;
   }
-  
+  console.log(retrySecs);
+  console.log(resUsernameAndIP);
+  console.log(usernameIPkey);
   if (retrySecs > 0) {
     console.log(resUsernameAndIP);
     console.log(usernameIPkey);
