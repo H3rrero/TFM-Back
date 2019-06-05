@@ -44,7 +44,7 @@ mongoose.connect('mongodb+srv://h3rrero:19Omedines94!@cluster0-exdvb.mongodb.net
     if (err) {
         console.log('ERROR: connecting to Database. ' + err);
     }
-
+ 
 });
 
 router.route('/login')
