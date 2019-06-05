@@ -19,7 +19,7 @@ exports.login = function (res,req) {
     var exist = false;
 	User.count({username: req.body.username}, function (err, c) {
 		if (c == 0) {
-			exist = true;
+			exist = true; 
 		}
 	}).then(function () {
 		if (!exist) {

@@ -28,6 +28,7 @@ var userProjectCtrl = require('./src/controllers/userProjects');
 var userPhaseCtrl = require('./src/controllers/userPhases');
 
 var router = express.Router();
+//process.env.PORT
 app.listen(process.env.PORT, function () {
     console.log('Example app listening on port 3000!'); 
   });
