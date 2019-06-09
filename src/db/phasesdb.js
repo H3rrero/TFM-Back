@@ -142,7 +142,9 @@ exports.findPhaseByProject = function (res,req) {
         if (!exist) {
             Phase.find({proyectId: req.params.project}, function (err, phases) {
                 if (err) return res.send(500, err.message);
-
+                phases.sort(function(a,b){
+                    return new Date(a.dateI) - new Date(b.dateI);
+                });
                 res.status(200).jsonp(phases);
             });
         }else {
