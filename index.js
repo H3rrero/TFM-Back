@@ -44,7 +44,7 @@ mongoose.connect('mongodb+srv://h3rrero:19Omedines94!@cluster0-exdvb.mongodb.net
     if (err) {
         console.log('ERROR: connecting to Database. ' + err);
     }
- 
+
 });
 
 router.route('/login')
@@ -88,7 +88,11 @@ router.route('/states')
 
 router.route('/states/:state')
     .get(stateCtrl.findById)
-    .put(stateCtrl.updateState);
+    .put(stateCtrl.updateState)
+    .delete(stateCtrl.deleteState);
+
+router.route('/states/byproject/:projectId')
+    .get(stateCtrl.findByProject);
 
 router.route('/projects')
     .get(projectCtrl.findAllProjects)
@@ -116,6 +120,9 @@ router.route('/taskbyphase/:phase')
 
 router.route('/taskbyphaseandproject/:phase/:project')
     .get(tasksCtrl.findTasksByPhaseAndProject);
+
+router.route('/taskbystateandproject/:state/:project')
+    .get(tasksCtrl.findTasksByStateAndProject);
 
 router.route('/userProjects')
     .get(userProjectCtrl.findAllUserProjects)

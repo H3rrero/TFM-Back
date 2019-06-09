@@ -184,6 +184,30 @@ exports.findTaskByPhase = function (res,req) {
     }) 
 }
 
+exports.findTaskByStateAndProject = function (res,req) {
+    var exist = false;
+
+    Task.count({state: req.params.state,projectId: req.params.project}, function (err, c) {
+        if (c == 0) {
+            exist = true;
+        }
+    }).then(function () {
+        var error = {
+            codigo: 2,
+            message: "Ese estado no tiene tareas."
+        }
+
+        if (!exist) {
+            Task.find({state: req.params.state,projectId: req.params.project}, function (err, tasks) {
+                if (err) return res.send(500, err.message);
+                res.status(200).jsonp(tasks);
+            });
+        }else {
+            res.status(200).jsonp(error);
+        }
+    }) 
+}
+
 exports.deleteTask = function (res,req) {
     var exist = false;
     Task.count({ id: req.params.task }, function (err, c) {
