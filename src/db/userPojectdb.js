@@ -139,15 +139,26 @@ exports.findByProjectAndUser = function (res,req) {
     var exist = false;
 
     UserProject.count({ user: req.params.user,project: req.params.project }, function (err, c) {
+        console.log(c);
         if (c == 0) {
             exist = true;
         }
     }).then(function () {
       if(!exist){
-        UserProject.find({ user: req.params.user, event: req.params.event }, function (err, usersProjects) {
+        UserProject.find({ user: req.params.user, project: req.params.project }, function (err, usersProjects) {
                 if (err) return res.status(500).send(err.message);
+                if(usersProjects.length == 0){
+                    console.log("usersProjects.length ")
+                    var error = {
+                        codigo: 2,
+                        message: "No existe."
+                      }
+                      res.status(200).jsonp(error);
+                }else{
+                    res.status(200).jsonp(usersProjects);
+                }
 
-                res.status(200).jsonp(usersProjects);
+              
 
             })
           } else {
