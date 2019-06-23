@@ -58,6 +58,9 @@ router.route('/users/:user')
     .get(userCtrl.findById)
     .put(userCtrl.updateUser);
 
+router.route('/updatePass/:user')
+    .put(userCtrl.changePassword);
+
 router.route('/users/checkmail/:user/:mail')
     .get(userCtrl.findByIdAndMail);
 

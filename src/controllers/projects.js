@@ -106,7 +106,7 @@ exports.deleteProject = function (req, res) {
 			error: 'Token inválido'
 		  })
 		} else {
-			ProjectsDb.deleteProject(req,res);
+			ProjectsDb.deleteProject(res,req);
 		}
 	  })
 

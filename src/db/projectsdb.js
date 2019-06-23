@@ -72,7 +72,6 @@ exports.updateProject = function (res,req) {
         if (!exist) {
             Project.findOne({ id: req.params.project }, function (err, project) {
                 if (err) return handleError(err);
-                console.log(project.name);
                 project.set({ id: req.body.name });
                 project.set({ name: req.body.name });
                 project.set({ description: req.body.description });

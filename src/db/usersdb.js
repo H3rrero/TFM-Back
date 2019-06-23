@@ -115,6 +115,48 @@ exports.updateUser = function (res,req) {
                     bcrypt.hash(req.body.password, salt, function(err, hash) {
                         user.set({ id: req.body.username });
                         user.set({ username: req.body.username });
+                        user.set({ firstname: req.body.firstname });
+                        user.set({ lastname: req.body.lastname });
+                        user.set({ question: req.body.question });
+                        user.set({ answer: req.body.answer });
+                        user.set({ mail: req.body.mail });
+                        user.set({ token: req.body.token });
+                        user.set({ projectId: req.body.projectId });
+                        user.set({ rol: req.body.rol });
+                        user.set({ deleted: req.body.deleted });
+                        user.save(function (err, tvshow) {
+                            if (err) return res.status(500).send(err.message);
+                            res.status(200).jsonp(user);
+                        });
+                    });
+            });
+                
+            });
+        } else {
+            var error = {
+                codigo: 2,
+                message: "Ese nombre de usuario no existe."
+            }
+            res.status(200).jsonp(error);
+        }
+    })
+}
+
+exports.changePassword = function (res,req) {
+    var exist = false;
+    User.count({ username: req.params.user }, function (err, c) {
+        if (c == 0) {
+            exist = true;
+        }
+    }).then(function () {
+        if (!exist) {
+            User.findOne({ username: req.params.user }, function (err, user) {
+                if (err) return handleError(err);
+                console.log(user);
+                bcrypt.genSalt(10, function(err, salt) {
+                    bcrypt.hash(req.body.password, salt, function(err, hash) {
+                        user.set({ id: req.body.username });
+                        user.set({ username: req.body.username });
                         user.set({ password: hash });
                         user.set({ firstname: req.body.firstname });
                         user.set({ lastname: req.body.lastname });
